@@ -1,4 +1,3 @@
-import uvicorn
 import os
 import sys
 import subprocess
@@ -23,4 +22,4 @@ if __name__ == "__main__":
         sys.exit(1)
     
     print("🚀 Starting FloorPlan AI backend server...")
-    uvicorn.run("app.main:app", host="0.0.0.0", port=8000, reload=True)
+    os.system("gunicorn -c gunicorn_config.py app.main:app")
